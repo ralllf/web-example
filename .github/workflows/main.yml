@@ -54,8 +54,8 @@ jobs:
         key: ${{ secrets.KEY }}
         port: 22
         script: |
-        sleep 10
-        docker run -p 80:80 ralllfik/web-example
+          sleep 10
+          docker run -p 80:80 ralllfik/web-example
     - name: Deploy to Azure WebVM1 via SSH
       uses: appleboy/ssh-action@master
       with:
@@ -64,8 +64,8 @@ jobs:
         key: ${{ secrets.KEY }}
         port: 22
         script: |
-        sleep 10
-        docker run -p 80:80 ralllfik/web-example
+          sleep 10
+          docker run -p 80:80 ralllfik/web-example
 
 
 

@@ -46,6 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-push-docker-image
     steps:
+    - uses: actions/checkout@v1
     - name: Deploy to Azure WebVM0 via SSH
       uses: appleboy/ssh-action@master
       with:
@@ -53,9 +54,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.KEY }}
         port: 22
-        script: |
-          sleep 10
-          docker run -p 80:80 ralllfik/web-example
+        script: docker run -p 80:80 ralllfik/web-example
     - name: Deploy to Azure WebVM1 via SSH
       uses: appleboy/ssh-action@master
       with:
@@ -63,9 +62,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.KEY }}
         port: 22
-        script: |
-          sleep 10
-          docker run -p 80:80 ralllfik/web-example
+        script: docker run -p 80:80 ralllfik/web-example
 
 
 

@@ -40,3 +40,29 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+
+  deploy-image-on-vm:
+    name: Deploy web container on vm
+    runs-on: ubuntu-latest
+    needs: build-and-push-docker-image
+    steps:
+    - name: Deploy to Azure WebVM0 via SSH
+      uses: appleboy/ssh-action@master
+      with:
+        hosts: 20.114.222.125
+        username: ubuntu
+        key: ${{ secrets.KEY }}
+        port: 22
+        script: docker run -p 80:80 ralllfik/web-example
+    - name: Deploy to Azure WebVM0 via SSH
+      uses: appleboy/ssh-action@master
+      with:
+        hosts: 20.119.242.73
+        username: ubuntu
+        key: ${{ secrets.KEY }}
+        port: 22
+        script: docker run -p 80:80 ralllfik/web-example
+
+
+
+

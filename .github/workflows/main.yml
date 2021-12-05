@@ -50,7 +50,7 @@ jobs:
     - name: Deploy to Azure WebVM0 via SSH
       uses: appleboy/ssh-action@master
       with:
-        hosts: ${{ secrets.VM0IP }}
+        host: ${{ secrets.VM0IP }}
         username: ubuntu
         key: ${{ secrets.KEY }}
         port: 22
@@ -58,7 +58,7 @@ jobs:
     - name: Deploy to Azure WebVM1 via SSH
       uses: appleboy/ssh-action@master
       with:
-        hosts: ${{ secrets.VM1IP }}
+        host: ${{ secrets.VM1IP }}
         username: ubuntu
         key: ${{ secrets.KEY }}
         port: 22

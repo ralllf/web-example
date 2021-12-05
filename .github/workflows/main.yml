@@ -54,7 +54,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.KEY }}
         port: 22
-        script: docker run -p 80:80 ralllfik/web-example
+        script: sudo docker run -p 80:80 ralllfik/web-example
     - name: Deploy to Azure WebVM1 via SSH
       uses: appleboy/ssh-action@master
       with:
@@ -62,7 +62,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.KEY }}
         port: 22
-        script: docker run -p 80:80 ralllfik/web-example
+        script: sudo docker run -p 80:80 ralllfik/web-example
 
 
 

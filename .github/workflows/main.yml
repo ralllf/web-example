@@ -55,7 +55,7 @@ jobs:
         key: ${{ secrets.KEY }}
         port: 22
         script: |
-          sudo docker stop eb-example
+          sudo docker stop web-example
           sudo docker run -d -p 80:80 --name web-example ralllfik/web-example
     - name: Deploy to Azure WebVM1 via SSH
       uses: appleboy/ssh-action@master

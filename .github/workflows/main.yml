@@ -57,6 +57,7 @@ jobs:
         script: |
           sudo docker stop web-example
           sudo docker rm web-example
+          sudo docker pull ralllfik/web-example
           sudo docker run -d -p 80:80 --name web-example ralllfik/web-example
     - name: Deploy to Azure WebVM1 via SSH
       uses: appleboy/ssh-action@master
@@ -68,6 +69,7 @@ jobs:
         script: |
           sudo docker stop web-example
           sudo docker rm web-example
+          sudo docker pull ralllfik/web-example
           sudo docker run -d -p 80:80 --name web-example ralllfik/web-example
 
 

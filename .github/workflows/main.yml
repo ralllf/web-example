@@ -47,15 +47,15 @@ jobs:
     needs: build-and-push-docker-image
     steps:
     - name: Deploy to Azure WebVM0 via SSH
-      uses: appleboy/ssh-action@master
+      uses: ironhalik/docker-over-ssh-action@v1
       with:
         hosts: 20.114.222.125
         username: ubuntu
         key: ${{ secrets.KEY }}
         port: 22
         script: docker run -p 80:80 ralllfik/web-example
-    - name: Deploy to Azure WebVM0 via SSH
-      uses: appleboy/ssh-action@master
+    - name: Deploy to Azure WebVM1 via SSH
+      uses: ironhalik/docker-over-ssh-action@v1
       with:
         hosts: 20.119.242.73
         username: ubuntu
